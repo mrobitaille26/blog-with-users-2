@@ -13,6 +13,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
+# what upppp
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv("CLIENT_SECRET")
 ckeditor = CKEditor(app)
