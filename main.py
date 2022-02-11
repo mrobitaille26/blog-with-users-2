@@ -15,7 +15,7 @@ load_dotenv()
 
 # what upppp
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.getenv("CLIENT_SECRET")
+app.config['SECRET_KEY'] = os.environ.get("CLIENT_SECRET")
 ckeditor = CKEditor(app)
 Bootstrap(app)
 
@@ -29,7 +29,7 @@ gravatar = Gravatar(app,
                     base_url=None)
 
 ##CONNECT TO DB
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
