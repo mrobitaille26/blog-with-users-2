@@ -10,11 +10,13 @@ from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
 from flask_gravatar import Gravatar
 from functools import wraps
 import os
-from dotenv import load_dotenv
-
+# from dotenv import load_dotenv
+from boto.s3.connection import S3Connection
 app = Flask(__name__)
-load_dotenv("C:/Users/Utilisateur/PycharmProjects/EnvironmentVariables")
-app.config['SECRET_KEY'] = os.getenv("BLOG_WITH_USER_APP_KEY")
+s3 = S3Connection(os.environ("BLOG_WITH_USER_APP_KEY"), os.environ("8BYkEfBA6O6donzWlSihBXox7C0sKR6b"))
+# load_dotenv("C:/Users/Utilisateur/PycharmProjects/EnvironmentVariables")
+# app.config['SECRET_KEY'] = os.getenv("BLOG_WITH_USER_APP_KEY")
+
 print(os.environ.get("BLOG_WITH_USER_APP_KEY"))
 ckeditor = CKEditor(app)
 Bootstrap(app)
